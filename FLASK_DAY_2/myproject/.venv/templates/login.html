@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/GLA_University_logo.png') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='JS/app.js') }}"></script>
+    <style>
+        #reset{
+            margin-top: 15px;
+            padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3e7a09;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/GLA_University_logo.png') }}" alt="logo">
+    <div class="container">
+        <h1>Login</h1>
+        {% if error %}
+            <p class="error">Invalid username or password. Please try again.</p>
+        {% endif %}
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            <button type="submit" onclick="changeText()" id="reset">Reset</button>
+        </form>
+    </div>
+    <!-- <script>
+    function changeText(){
+    var button=document.getElementById('reset');
+    button.textContent='Reset Again';
+    }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Login</title>
+    <link rel="shortcut icon" href="GLA_University_logo.png" type="image/x-icon">
+    <style>
+        img{
+            margin-right: 40px;
+        }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 380px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <img src="GLA_University_logo.png" alt="">
+    <div class="container">
+        <h1>University Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" placeholder="enter your username" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" placeholder="enter your password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p id="error-message"></p>
+            <center><p>click here to <a href="login.html">Register</a></p></center>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the usual way
+
+    // Clear previous error message
+    document.getElementById('error-message').textContent = '';
+
+    // Get input values
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // Basic validation
+    if (username === '' || password === '') {
+        document.getElementById('error-message').textContent = 'Both fields are required.';
+        return;
+    }
+
+    // Simulate a successful login (this is just for demonstration; replace with actual login logic)
+    if (username === 'student' && password === 'password123') {
+        alert('Login successful!');
+        // Redirect to another page or take other actions here
+    } else {
+        document.getElementById('error-message').textContent = 'Invalid username or password.';
+    }
+});
+
+    </script>
+</body>
+</html>

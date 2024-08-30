@@ -1,0 +1,151 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME_PAGE</title>
+    <link href="{{url_for('static',filename='images/i1.jpg')}}" rel="icon" sizes="16*16">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/demo1.css')}}">
+    <script src="{{url_for('static',filename='JS/demo1.js')}}"></script>
+</head>
+<body>
+    <hr>
+    <h1><tt>Welcome to IHUB_STUDENT_LOGIN</tt></h1>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>STUDENT_LOGIN</legend>
+        <center>
+            <table border="3">
+                <form action="" onsubmit="return Test_Case1()" method="post">
+                    <tr>
+                        <td><label for="">User_Name</label></td>
+                        <td><input type="text" placeholder="username" id="A" autocomplete="of"></td>
+                        <td><span id="AAA"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Password</label></td>
+                        <td><input type="pasword" placeholder="password" id="B" autocomplete="of"></td>
+                        <td><span id="BBB"></span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="STUDENT_LOGIN"></td>
+                    </tr>
+                </form>
+            </table>
+        </center>
+    </fieldset>    
+</body>
+</html>
+-->
+
+<!-- Using POST Method -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME_PAGE</title>
+    <link href="{{ url_for('static', filename='images/ihub2.png') }}" rel="icon" sizes="16x16">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/demo1.css') }}">
+    <!-- <script src="{{ url_for('static', filename='JS/demo1.js') }}" defer></script> -->
+</head>
+<body>
+    <hr>
+    <center>
+        <h1><tt>IHUB LOGIN PAGE</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>STUDENT_LOGIN</legend>
+        <center>
+            <form action="http://127.0.0.1:5000/home" method="post">
+                <table border="3">
+                    <tr>
+                        <td><label for="username">User_Name</label></td>
+                        <td><input type="text" placeholder="username" name="username" autocomplete="off"></td>
+                        <td><span id="AAA"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label></td>
+                        <td><input type="password" placeholder="password" name="password" autocomplete="off"></td>
+                        <td><span id="BBB"></span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="STUDENT_LOGIN"></td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </fieldset>
+    <script>
+        function Test_Case1()
+{
+    var user_1=document.getElementById("A").value
+    var pass_1=document.getElementById("B").value
+    if(user_1==""||user_1==null)
+    {
+        document.getElementById("AAA").innerHTML="*** USERNAME IS REQUIRED ****"
+        return false
+    }
+    else if(pass_1==""||pass_1==null)
+    {
+        document.getElementById("BBB").innerHTML="*** PASSWORD IS REQUIRED ***"
+        return false
+    }
+}
+
+    </script>
+</body>
+</html>
+
+<!-- Using GET METHOD -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME_PAGE</title>
+    <link href="{{url_for('static',filename='images/ihub2.png')}}" rel="icon" sizes="16*16">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/demo1.css')}}">
+    <script src="{{url_for('static',filename='JS/demo1.js')}}"></script>
+</head>
+<body>
+    <hr>
+    <center>
+    <h1><tt>IHUB LOGIN PAGE</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>STUDENT_LOGIN</legend>
+        <center>
+            <table border="3">
+                <form action="http://127.0.0.1:5000/home" onsubmit="return Test_Case1()" method="get">
+                    <tr>
+                        <td><label for="">User_Name</label></td>
+                        <td><input type="text" placeholder="username"name="username"  autocomplete="off"></td>
+                        <td><span id="AAA"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Password</label></td>
+                        <td><input type="pasword" placeholder="password"  name="password" autocomplete="off"></td>
+                        <td><span id="BBB"></span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="STUDENT_LOGIN"></td>
+                    </tr>
+                </form>
+            </table>
+        </center>
+    </fieldset>
+    
+</body>
+</html>
+ -->

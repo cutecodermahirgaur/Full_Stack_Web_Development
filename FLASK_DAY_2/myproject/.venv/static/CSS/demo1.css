@@ -1,0 +1,25 @@
+* 
+{
+    margin: 0px;
+    padding: 0px;
+}
+.A 
+{
+    width:200px;
+    height:200px;
+    background-color: chocolate;
+    color:white;
+    border-radius:15px;
+    border:2px solid black;
+    margin-left:250px;
+}
+.B
+{
+    width:200px;
+    height:200px;
+    background-color:red;
+    color:white;
+    border-radius:15px;
+    border:2px solid black;
+    margin-left:250px;
+}

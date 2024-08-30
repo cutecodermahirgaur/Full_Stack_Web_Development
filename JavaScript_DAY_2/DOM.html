@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Document Object Model
+    <fieldset>
+        <legend>
+            DOM
+        </legend>
+        <form action="">
+            <center>
+            <label for="username">Username</label>
+            <input type="text" placeholder="username" id="A" required>
+            <br>
+            <br>
+            <input type="submit" value="enter" onclick="test_case1()">
+        </center>
+        </form>
+    </fieldset>
+    <script>
+        function test_case1()
+        {
+            var username=document.getElementById("A").value
+            document.write("My username is : "+username);
+            document.write("<hr>");
+        }
+    </script>
+</body>
+</html>

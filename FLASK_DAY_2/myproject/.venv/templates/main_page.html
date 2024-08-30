@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/GLA_University_logo.png') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='JS/app.js') }}" defer></script>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/GLA_University_logo.png') }}" alt="logo">
+    <div class="container">
+        <br>
+        <br>
+        <h1>Welcome,  {{ username }}!</h1> &nbsp;&nbsp;
+        <p>This is your personalized main page.</p>
+        <hr>
+        <p>Happy To See You !</p>
+    </div>
+</body>
+</html>

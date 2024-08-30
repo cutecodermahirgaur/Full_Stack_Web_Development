@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Higher Order functions in javascript</h5>
+    <!-- filter() -->
+    <!-- map() -->
+    <!-- reduce() -->
+    <script>
+        // filter function
+        const a=[0,1,2,3,4,5,6,7,8,9]
+        const b=a.filter(function(x1){
+        if(x1%2==0){
+            return x1;
+        }
+    })
+    document.write("events elements are : "+b);
+    document.write("<br>")
+        // filter with arrow
+        const m=[0,1,2,3,4,5,6,7,8,9]
+        const n=m.filter(x1=>x1%2==0)
+    document.write("events elements are : "+n);
+    document.write("<br>")
+        // map function
+        const c=[11,12,13,14,15]
+        const d=c.map(function(y1){
+            return y1+1500;
+        })
+    document.write("result_set : "+d)
+    document.write("<br>")
+        // map with arrow
+        const p=[12,12,13,13]
+        const q=p.map(y1=>y1+200)
+    document.write("result_set : "+q)
+    document.write("<br>")
+        // reduce function
+        const emp_salary=[10000,20000,30000,40000]
+        const total_salary=emp_salary.reduce(function(x1,x2){
+            return x1+x2;
+        })
+    document.write("total salary : "+total_salary)
+    document.write("<br>")
+        // reduce with arrow
+        const stu_fee=[100,20,300,400]
+        const total_fee=stu_fee.reduce((x1,x2)=>(x1+x2))
+    document.write("total fee : "+total_fee)
+    document.write("<br>")
+
+    </script>
+</body>
+</html>

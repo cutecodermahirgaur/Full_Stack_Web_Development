@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Developer</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <a href="about.html"><i class="fa-solid fa-message"></i> About</a>
+            <a href="contact.html"><i class="fa-solid fa-phone-volume"></i> Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-info">
+            <h2>Contact Details</h2>
+            <ul>
+                <li><strong>Name:</strong> Mahir Gaur</li>
+                <li><strong>Email:</strong> <a href="mailto:johndoe@example.com">mahir.gaur@gmail.com</a></li>
+                <li><strong>Phone:</strong> +91 63976 84456</li>
+                <li><strong>Website:</strong> <a href="https://www.johndoe.dev" target="_blank">www.mahirgaur@gla.ac.in</a></li>
+            </ul>
+        </section>
+        <section class="contact-form">
+            <h2>Send a Message</h2>
+            <form action="mailto:johndoe@example.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Foodie. All rights reserved.</p>
+    </footer>
+</body>
+</html>

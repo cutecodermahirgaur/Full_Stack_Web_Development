@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class with non parameterized constructor
+        class I_HUB{
+            constructor(){
+                document.write("THIS IS NON PARAMETRIZED CONSTRUCTOR")
+                document.write("<hr>")
+            }
+        }
+        var i1=new I_HUB();
+        // class with parameterized constructor
+        class Profile{
+            constructor(name,section,studyin,university){
+                this.name="Mahir_Gaur";
+                this.studyin=10;
+                this.section="J";
+                this.university="GLA University , Mathura "
+            }
+        }
+        var p1=new Profile();
+        document.write("profile_name : "+p1.name);
+        document.write("<hr>")
+        document.write("study_in : "+p1.studyin);
+        document.write("<hr>")
+        document.write("section : "+p1.section);
+        document.write("<hr>")
+        document.write("university_name : "+p1.university);
+        document.write("<hr>")
+        // static method in javascript
+        class staticcl{
+            static m2(){
+                return "static method";
+            }
+        }
+        var i=new staticcl();
+        document.write(staticcl.m2());
+        document.write("<hr>")
+        // inheritance in javascript
+        class student{
+            k1(){
+                return "Dad"
+            }
+        }
+        class student2 extends student{
+            k2(){
+                return "Son";
+            }
+        }
+        var m=new student();
+        var n=new student2();
+        document.write("parent class : "+m.k1());
+        document.write("<br>")
+        document.write("child class : "+n.k2(),n.k1());
+        document.write("<hr>")
+        // callback function
+        function test_case1(name,callback){
+            document.write("Hi , "+"My names is : "+name);
+            document.write("<br>")
+            callback();
+        }
+        function test_case2(){
+            document.write("test_case1 callback function");
+        }
+        test_case1("Mahir-Gaur",test_case2)
+        document.write("<br>")
+        document.write("<hr>")
+
+        // promises in javascript
+        var j1=new Promise(function(resolve,reject){
+            var s=100+900;
+            if(s==1000){
+                resolve("operation is done successfully");
+            }
+            else{
+                reject ("operation is decline")
+            }
+        })
+        j1.then(function(fromResolve){
+            document.write("Request Us: "+fromResolve);
+        }).catch(function(fromReject){
+            document.write("Request is :"+fromReject);
+        })
+        // function new
+        function num(){
+            for(var i=0;i<=10;i++){
+                document.write(i+"<hr>");
+            }
+        }
+        num()
+    </script>
+</body>
+</html>

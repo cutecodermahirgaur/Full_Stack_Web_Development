@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order & Checkout - Food Delivery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="order.css">
+</head>
+<body>
+    <header>
+        <h1>Foodie</h1>
+        <nav>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <a href="about.html"><i class="fa-solid fa-message"></i> About</a>
+            <a href="contact.html"><i class="fa-solid fa-phone-volume"></i> Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Menu</h2>
+            <div class="menu-item">
+                <img src="pizza.jpg" alt="Pizza">
+                <div class="menu-info">
+                    <h3>Cheesy Tasty Pizza</h3>
+                    <p>A classic pizza with fresh mozzarella with different topping varients.</p>
+                    <span class="price">$12.99</span>
+                    <button onclick="addToOrder('Pizza', 7.99)">Add to Order</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="burger.jpeg" alt="Burger">
+                <div class="menu-info">
+                    <h3>Ultimate Cheese Burger</h3>
+                    <p> Juicy beef patty topped with melted cheddar, crisp lettuce, ripe tomato, pickles, and our signature sauce, all nestled in a toasted brioche bun.</p>
+                    <span class="price">$7.99</span>
+                    <button onclick="addToOrder('Burger', 2.99)">Add to Order</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="pasta.jpg" alt="Pasta">
+                <div class="menu-info">
+                    <h3>Creamy Alfredo Pasta</h3>
+                    <p>Fettuccine noodles enveloped in a rich, velvety Alfredo sauce with Parmesan, garlic, and a touch of black pepper.</p>
+                    <span class="price">$5.49</span>
+                    <button onclick="addToOrder('Pasta', 5.49)">Add to Order</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="noodles.jpg" alt="Noodles">
+                <div class="menu-info">
+                    <h3>Stir-Fried Noodles</h3>
+                    <p>Wok-tossed noodles with vibrant vegetables, tender protein, and a savory soy-ginger sauce.</p>
+                    <span class="price">$3.49</span>
+                    <button onclick="addToOrder('Noodles', 3.49)">Add to Order</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="momos.jpeg" alt="Noodles">
+                <div class="menu-info">
+                    <h3>Spicy & Tasty Momos</h3>
+                    <p> Delicate steamed dumplings packed with seasoned meat or veggies, served with a tangy dipping sauce.</p>
+                    <span class="price">$2.49</span>
+                    <button onclick="addToOrder('Momos', 3.49)">Add to Order</button>
+                </div>
+            </div>
+        </section>
+        <section class="order-summary">
+            <h2>Order Summary</h2>
+            <ul id="order-list">
+                <!-- Dynamically populated -->
+            </ul>
+            <div class="total">
+                <span>Total:</span>
+                <span id="total-price">$0.00</span>
+            </div>
+            <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </section>
+        <section class="checkout" id="checkout-section" style="display: none;">
+            <h2>Checkout</h2>
+            <form id="checkout-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                
+                <button type="button" onclick="placeOrder()">Place Order</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Foodie. All rights reserved.</p>
+    </footer>
+    <script>
+        let order = [];
+        let totalPrice = 0;
+
+        function addToOrder(item, price) {
+            order.push({ item, price });
+            totalPrice += price;
+            updateOrderSummary();
+        }
+
+        function updateOrderSummary() {
+            const orderList = document.getElementById('order-list');
+            orderList.innerHTML = '';
+            order.forEach(orderItem => {
+                const li = document.createElement('li');
+                li.textContent = `${orderItem.item} - $${orderItem.price.toFixed(2)}`;
+                orderList.appendChild(li);
+            });
+            document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
+        }
+
+        function proceedToCheckout() {
+            if (order.length === 0) {
+                alert('Please add items to your order first.');
+                return;
+            }
+            document.querySelector('.order-summary').style.display = 'none';
+            document.getElementById('checkout-section').style.display = 'block';
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+
+            if (!name || !email || !phone || !address) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            alert(`Order placed successfully!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}`);
+            // Here, you could handle form submission and order processing
+            resetOrder();
+        }
+
+        function resetOrder() {
+            order = [];
+            totalPrice = 0;
+            updateOrderSummary();
+            document.querySelector('.order-summary').style.display = 'block';
+            document.getElementById('checkout-section').style.display = 'none';
+            document.getElementById('checkout-form').reset();
+        }
+    </script>
+</body>
+</html>
